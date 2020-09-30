@@ -6,18 +6,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using WorkerService.Model;
 
 namespace WorkerService
 {
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
-        //private string _url = "https://google.com/";
-
-        public Random random = new Random();
-
-        //private HttpClient _client;
-        //private HttpResponseMessage _result;
+        public Random Random = new Random();
+      
 
         public Worker(ILogger<Worker> logger)
         {
@@ -26,7 +23,6 @@ namespace WorkerService
 
         public override Task StartAsync(CancellationToken cancellationToken)
         {
-            //_client = new HttpClient();
             _logger.LogInformation("The service has been started");
 
             return base.StartAsync(cancellationToken);
@@ -34,7 +30,7 @@ namespace WorkerService
 
         public override Task StopAsync(CancellationToken cancellationToken)
         {
-            _client.Dispose();
+            //_client.Dispose();
             _logger.LogInformation("The service has been stopped");
             return base.StopAsync(cancellationToken);
         }
@@ -43,7 +39,8 @@ namespace WorkerService
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                var temp = random.Next(15, 40);
+                var temp = Random.Next(20,40);
+
 
                 if (temp < 30)
                     Console.WriteLine($"The temperature is {temp}C, everything is fine");
