@@ -17,9 +17,9 @@ namespace WorkerService.Model
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    WeatherResultModel result = await response.Content.ReadAsAsync<WeatherResultModel>();
+                    WeatherModel result = await response.Content.ReadAsAsync<WeatherModel>();
 
-                    return result.Results;
+                    return result;
                 }
                 else
                 {
