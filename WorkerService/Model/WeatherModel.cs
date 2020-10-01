@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WorkerService
+namespace WorkerService.Model
 {
     public class WeatherModel
     {
