@@ -41,7 +41,6 @@ namespace WorkerService
             {
                 var temp = Random.Next(20,40);
 
-
                 if (temp < 30)
                     Console.WriteLine($"The temperature is {temp}C, everything is fine");
 
